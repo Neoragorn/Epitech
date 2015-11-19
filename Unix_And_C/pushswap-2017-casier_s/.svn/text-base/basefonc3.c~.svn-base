@@ -1,0 +1,79 @@
+/*
+** basefonc3.c for base fonc in /home/casier_s/os-home/pushswap
+** 
+** Made by sofian casier
+** Login   <casier_s@epitech.net>
+** 
+** Started on  Wed Jan  2 20:39:35 2013 sofian casier
+** Last update Sat Jan  5 15:16:25 2013 sofian casier
+*/
+
+#include <stdlib.h>
+
+char    *my_strcpy(char *dest, char *src)
+{
+  int   i;
+
+  i = 0;
+  while (src[i] || dest[i])
+    {
+      dest[i] = src[i];
+      i++;
+    }
+  return (dest);
+}
+
+int	my_tabstrlen(char **str)
+{
+  int	i;
+  int	j;
+  int	x;
+  int	count;
+
+  x = 0;
+  i = 0;
+  count = 0;
+  while (str[i] != NULL)
+    {
+      j = 0;
+      while (str[i][j])
+	{
+	  if (str[i][j] >= '0' && str[i][j] <= '9')
+	    j++;
+	  else
+	    return (count);
+	}
+      if (j == my_strlen(str[i]))
+	count++;
+      i++;
+    }
+  return (count);
+}
+
+int            *my_intdup(char **str, int *l_a)
+{
+  int   i;
+  int   j;
+
+  if (l_a == NULL)
+    return (NULL);
+  i = 1;
+  j = 0;
+  while (str[i])
+    {
+      l_a[j] = my_getnbr(str[i]);
+      j++;
+      i++;
+    }
+  return (l_a);
+}
+
+int     my_strtabswap(char **str, int pos, int pos2)
+{
+  char  *tmp;
+
+  tmp = malloc(my_strlen(str) * sizeof(char *) + 1);
+  tmp = str[pos];
+  str[pos] = str[pos2];
+  str[pos2] = tmp;
+}

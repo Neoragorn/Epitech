@@ -1,0 +1,71 @@
+/*
+** pixel_image.c for pixel_image in /home/casier_s//tprtv1
+** 
+** Made by sofian casier
+** Login   <casier_s@epitech.net>
+** 
+** Started on  Mon Mar 11 16:49:59 2013 sofian casier
+** Last update Mon Mar 11 18:58:16 2013 sofian casier
+*/
+
+#include <mlx.h>
+#include <math.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include "my.h"
+
+int     write_arrow(int keycode, void *param)
+{
+  param = 0;
+  if (keycode == 65362)
+    my_putstr("fleche du haut\n");
+  else if (keycode == 65364)
+    my_putstr("fleche du bas\n");
+  else if (keycode == 65363)
+    my_putstr("fleche du droite\n");
+  else if (keycode == 65361)
+    my_putstr("fleche du gauche\n");
+  else if (keycode == 65307)
+    exit(1);
+  return (1);
+}
+
+int     color_pixel(t_image *image, int color, int pos)
+{
+  image->data[pos] = color & 255;
+  image->data[pos + 1] = color >> 8 & 255;
+  image->data[pos + 2] = color >> 16 & 255;
+  image->data[pos + 3] = 0;
+}
+
+void    draw_line(t_image *image, t_expose *expose)
+{
+  expose->x = 0;
+  while (expose->x <= WIN_X)
+    {
+      expose->y = 0;
+      while (expose->y <= WIN_Y)
+        {
+          fill_image(image, expose);
+          expose->y++;
+        }
+      expose->x++;
+    }
+}
+
+int     fill_image(t_image *image, t_expose *expose)
+{
+  int           pos;
+  int           color;
+  
+  pos = (expose->x * (image->bpp / 8)) + (expose->y * image->sizeline);
+  color = calc(expose, expose->x, expose->y);
+  //  if (color == 0xEFEFC2)
+  //  inter_light_sphere(sphere, interlight);
+  color_pixel(image, color, pos);
+}
+
+int     manage_expose(t_expose *expose)
+{
+  mlx_put_image_to_window(expose->mlx_ptr, expose->win_ptr, expose->img, 0, 0);
+}

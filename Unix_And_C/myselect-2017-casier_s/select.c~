@@ -1,0 +1,78 @@
+/*
+** main.c for main in /home/casier_s//my_select
+** 
+** Made by sofian casier
+** Login   <casier_s@epitech.net>
+** 
+** Started on  Fri Jan 18 11:20:52 2013 sofian casier
+** Last update Sun Jan 20 20:04:33 2013 sofian casier
+*/
+
+#include <term.h>
+#include <termios.h>
+#include <curses.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "my.h"
+
+int     my_putint(int c)
+{
+  write(0, &c, 1);
+}
+
+int	clear_window()
+{
+  struct termios term;
+  char		*capacity;
+  char		buffer[4096];
+
+  if (tgetent(buffer, "xterm") == -1)
+    exit (1);
+  capacity = tgetstr("cl", NULL);
+  tputs(capacity, 1, my_putint);
+}
+
+int     default_cursor()
+{
+  struct termios term;
+  char          *cursor;
+  char          *togo;
+  char          buffer[5000];
+
+  if (tgetent(buffer, "xterm") == -1)
+    exit (1);
+  togo = tgetstr("cm", NULL);
+  cursor = tgoto(togo, 0, 0);
+  tputs(cursor, 1, my_putint);
+}
+
+int	begin(t_init *init)
+{
+  initiate(init);
+  clear_window();
+  no_show_carac();
+  default_cursor();
+}
+
+char	*main(int argc, char **argv, char **env)
+{
+  struct termios term;
+  t_init	init;
+  t_data	data;
+  char		*buffer;
+
+  if (env == NULL)
+    exit(1);
+  if (argc == 1)
+    return;
+  data.count = 1;
+  data.x = 0;
+  data.y = 0;
+  data.i = 0;
+  begin(&init);
+  while (data.i++ != argc - 1)
+    add(&init, argv[data.i]);
+  display(&init);
+  buffer = modif(data.carac, data.x, data.y, data.count, argc, argv, init);
+  return (buffer);
+}

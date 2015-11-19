@@ -1,0 +1,78 @@
+/*
+** bissection.c for my_bissection_105 in /home/liagre_c//Math/105
+** 
+** Made by clement liagre
+** Login   <liagre_c@epitech.net>
+** 
+** Started on  Mon Jan 14 13:46:41 2013 clement liagre
+** Last update Mon Jan 14 17:14:42 2013 sofian casier
+*/
+
+double	f_bis(double x)
+{
+  x = (x^4) - (5x^3) + (6 * x^2) - 1;
+  return (x);
+}
+
+void	bissection(double **tab, int argc)
+{
+  double		initial;
+  double		initial1;
+  double	e;
+  double	x;
+  double	*t;
+  double	c;
+  double	fa;
+  double	fb;
+  double	fc;
+  int	n;
+  int	stop;
+
+  t = malloc(argc * sizeof(double));
+  n = 0;
+  stop = 0;
+  t[n] = 0;
+  initial = 0;
+  initial1 = 1;
+  while (n + 1 < argc)
+    {
+      fa = f_bis(initial);
+      fb = f_bis(initial1);
+    }
+}
+
+void eq_dicho(double a,double b,double eps,double t[ITERMAX])
+{
+  double c,fa,fb,fc;
+  int n,stop;
+  for(n=0;n<ITERMAX;n++)
+    t[n]=0;
+  n=0;
+  stop=0;
+  fa=eq_f(a);
+  fb=eq_f(b);
+  if(fa*fb > 0) stop=1;
+  if(fa==0) {t[1]=a;stop=1;}
+  if(fb==0) {t[1]=b;stop=1;}
+  while ((b-a > eps) && (stop==0) && (n < ITERMAX-1))
+    {
+      n++;
+      c=(a+b)/2.0;
+      fc=eq_f(c);
+      t[n]=c;
+      if(fc != 0)
+	{
+	  if(fa*fc > 0)
+	    {
+	      a=c;
+	      fa=fc;
+	    }
+	  else
+	    {
+	      b=c;
+	      fb=fc;
+	    }
+	}
+      else stop=1;
+    }
+}

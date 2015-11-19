@@ -1,0 +1,89 @@
+/*
+** calc_vecteur.c for calc_vecteur in /home/duques_a/Epitech/projet/101vecteur
+** 
+** Made by pierre duquesnoy
+** Login   <duques_a@epitech.net>
+** 
+** Started on  Fri Nov  9 13:59:43 2012 pierre duquesnoy
+** Last update Tue Nov 13 16:53:41 2012 pierre duquesnoy
+*/
+
+#include <stdlib.h>
+#include <stdio.h>
+#include "vect_struct.h"
+#include "my.h"
+
+s_vect		*vecteur_add(s_vect *u, s_vect *v)
+{
+  int		i;
+  s_vect	*vector;
+
+  i = 0;
+  
+  vector = malloc(sizeof(s_vect));
+  vector->elements = malloc(sizeof(int)*u->size);
+  vector->size = u->size;
+
+  while ( i < u->size)
+    {
+      vector->elements[i] = u->elements[i] + v->elements[i];
+      printf("%d",vector->elements[i]);
+      printf("  ");
+      i++;
+    }
+  return (vector);
+}
+
+s_vect		*p_mult(s_vect *p, s_vect *u)
+{
+  int		i;
+  s_vect	*vector;
+
+  i = 0;
+  
+  vector = malloc(sizeof(s_vect));
+  vector->elements = malloc(sizeof(int)*u->size);
+  vector->size = u->size;
+  
+  while ( i < u->size)
+    {
+      vector->elements[i] = u->elements[i] * p->elements[0];
+      printf("%d",vector->elements[i]);
+      printf("   ");
+      i++;
+    }
+  return (vector);
+}
+
+int		p_scalaire(s_vect *u, s_vect *v)
+{
+  int		i;
+  int		res;
+  
+  i = 0;
+  res = 0;
+  
+  while ( i < u->size)
+    {
+      res += u->elements[i] * v->elements[i];
+      i++;
+    }
+  printf("%d",res);
+  printf("   ");
+  return (res);
+}
+
+s_vect		*p_vectoriel(s_vect *u, s_vect *v)
+{
+  s_vect	*vector;
+  
+  vector = malloc(sizeof(s_vect));
+  vector->elements = malloc(sizeof(int)*u->size);
+  vector->size = u->size;
+  
+  vector->elements[0] = (u->elements[1]*v->elements[2]) - (u->elements[2]*v->elements[1]);
+  vector->elements[1] = (u->elements[2]*v->elements[0]) - (u->elements[0]*v->elements[2]);
+  vector->elements[2] = (u->elements[0]*v->elements[1]) - (u->elements[1]*v->elements[0]);
+  printf("%d    %d    %d", vector->elements[0], vector->elements[1], vector->elements[2]);
+  return (vector);
+}

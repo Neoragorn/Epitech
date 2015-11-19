@@ -1,0 +1,49 @@
+/*
+** rotation.c for rotation in /home/casier_s/os-home/103architecte-2017-casier_s
+** 
+** Made by sofian casier
+** Login   <casier_s@epitech.net>
+** 
+** Started on  Thu Dec 13 15:16:00 2012 sofian casier
+** Last update Thu Dec 13 15:30:20 2012 sofian casier
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+double          convert_to_rad(double result, char **argv)
+{
+  double        pi;
+  double        result2;
+  double        result_cos;
+  double        result_sin;
+  double        null;
+  double        one;
+  double        result_final_x;
+  double        result_final_y;
+
+  one = 1,000;
+  null = 0,000;
+  pi = 3.141592654;
+  result2 = (result * pi) / 180;
+  result_cos = cos(result2);
+  result_sin = sin(result2);
+  result_final_x = result_cos * (atoi(argv[1])) - result_sin * (atoi(argv[2]));
+  result_final_y = result_sin * (atoi(argv[1])) + result_cos * (atoi(argv[2]));
+  printf("Rotation d'un angle de %.1f degrés\n", result);
+  printf("%.3f  %.3f  %.3f\n", result_cos, -result_sin, null);
+  printf("%.3f  %.3f  %.3f\n", result_sin, result_cos, null);
+  printf("%.3f  %.3f  %.3f\n", null, null, one);
+  printf("(%s, %s) => (%.f, %.f) \n", argv[1], argv[2], result_final_x, result_final_y);
+}
+
+int             rotation(char **argv)
+{
+  double        result;
+  double        result2;
+
+  error_message(argv);
+  result = atof(argv[4]);
+  convert_to_rad(result, argv);
+}

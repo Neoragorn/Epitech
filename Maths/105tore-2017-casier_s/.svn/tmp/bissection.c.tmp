@@ -1,0 +1,150 @@
+/*
+** bissection.c for my_bissection_105 in /home/liagre_c//Math/105
+** 
+** Made by clement liagre
+** Login   <liagre_c@epitech.net>
+** 
+** Started on  Mon Jan 14 13:46:41 2013 clement liagre
+<<<<<<< .mine
+** Last update Mon Jan 14 17:14:42 2013 sofian casier
+=======
+** Last update Mon Jan 14 17:33:11 2013 clement liagre
+>>>>>>> .r3
+*/
+
+<<<<<<< .mine
+double	f_bis(double x)
+=======
+#include <math.h>
+
+double dev_f(double a, double *tab)
+>>>>>>> .r3
+{
+<<<<<<< .mine
+  x = (x^4) - (5x^3) + (6 * x^2) - 1;
+  return (x);
+=======
+  double	x;
+  
+  a = tab[1] + (tab[2] * x) + (tab[3] * x^2) + (tab[4] * x^3) + (tab[5] * x^4);
+  return (a);
+>>>>>>> .r3
+}
+<<<<<<< .mine
+
+void	bissection(double **tab, int argc)
+{
+  double		initial;
+  double		initial1;
+  double	e;
+  double	x;
+  double	*t;
+  double	c;
+  double	fa;
+  double	fb;
+  double	fc;
+  int	n;
+  int	stop;
+
+  t = malloc(argc * sizeof(double));
+  n = 0;
+  stop = 0;
+  t[n] = 0;
+  initial = 0;
+  initial1 = 1;
+  while (n + 1 < argc)
+    {
+      fa = f_bis(initial);
+      fb = f_bis(initial1);
+    }
+}
+
+void eq_dicho(double a,double b,double eps,double t[ITERMAX])
+{
+  double c,fa,fb,fc;
+  int n,stop;
+  for(n=0;n<ITERMAX;n++)
+    t[n]=0;
+  n=0;
+  stop=0;
+  fa=eq_f(a);
+  fb=eq_f(b);
+  if(fa*fb > 0) stop=1;
+  if(fa==0) {t[1]=a;stop=1;}
+  if(fb==0) {t[1]=b;stop=1;}
+  while ((b-a > eps) && (stop==0) && (n < ITERMAX-1))
+    {
+      n++;
+      c=(a+b)/2.0;
+      fc=eq_f(c);
+      t[n]=c;
+      if(fc != 0)
+	{
+	  if(fa*fc > 0)
+	    {
+	      a=c;
+	      fa=fc;
+	    }
+	  else
+	    {
+	      b=c;
+	      fb=fc;
+	    }
+	}
+      else stop=1;
+    }
+}
+=======
+
+void	bissection(double **tab, int argc, double a, double b, double end)
+{
+  double	c;
+  double	stock_a;
+  double	stock_b;
+  double	stock_c;
+  int		count;
+  int		stop;
+
+  count = 0;
+  stop = 0;
+  while (count < (argc - 1))
+    n++;
+  tab[count] = 0;
+  count = 0;
+  stock_a = dev_f(a, tab);
+  stock_b = dev_f(b, tab);
+  if ((stock_a * stock_b) > 0)
+    stop = 1;
+  if (stock_a == 0)
+    {
+      tab[1] = a;
+      stop = 1;
+    }  
+  if (stock_b == 0)
+    {
+      tab[1] = b;
+      stop = 1;
+    }
+  while (((b - a) > end) && (count < (argc - 1) - 1) && stop != 1)
+    {
+      c = (a + b) / 2;
+      stock_c = dev_f(c, tab);
+      tab[count] = c;
+      if (stock_c != 0)
+	{
+	  if (stock_a * stock_c > 0)
+	    {
+	      a = c;
+	      stock_a = stock_c;
+	    }
+	  else
+	    {
+	      b = c;
+	      stock_b = stock_c;
+	    }
+	}
+      else
+	stop = 1;
+    }
+}
+>>>>>>> .r3

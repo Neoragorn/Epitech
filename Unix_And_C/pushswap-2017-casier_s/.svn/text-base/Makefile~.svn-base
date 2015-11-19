@@ -1,0 +1,39 @@
+##
+## Makefile for makerfile in /home/casier_s
+## 
+## Made by sofian casier
+## Login   <casier_s@epitech.net>
+## 
+## Started on  Wed Jan  2 18:34:36 2013 sofian casier
+## Last update Sat Jan  5 18:39:59 2013 sofian casier
+##
+
+SRC=            push_swap.c \
+		swap_int.c \
+		basefonc.c \
+		basefonc2.c \
+		basefonc3.c \
+
+OBJS=           $(SRC:.c=.o)
+
+NAME=           push_swap
+
+CC=             gcc -g -Wall
+
+RM=             rm -f
+
+$(NAME):        $(OBJS)
+		cc -o $(NAME) $(OBJS)
+
+all:            $(NAME)
+
+
+clean:
+		$(RM)    $(OBJS)
+
+fclean:         clean
+		$(RM) $(NAME)
+
+re:             fclean all
+
+.PHONY:         all clean fclean all

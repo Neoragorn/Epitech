@@ -1,0 +1,56 @@
+/*
+** cyl.c for cyl in /home/casier_s//rtv1-2017-casier_s
+** 
+** Made by sofian casier
+** Login   <casier_s@epitech.net>
+** 
+** Started on  Wed Mar 13 16:59:15 2013 sofian casier
+** Last update Wed Mar 13 17:06:27 2013 sofian casier
+*/
+
+#include <mlx.h>
+#include <X11/X.h>
+#include <math.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include "my.h"
+
+float	create_cylindre(t_cyl)
+{
+  float delta;
+  float a;
+  float b;
+  float c;
+
+  sphere->x1 -= X_SPHERE;
+  sphere->y1 -= Y_SPHERE;
+  sphere->z1 -= Z_SPHERE;
+  a = powf(sphere->x1, 2) + powf(sphere->y1, 2) + powf(sphere->z1, 2);
+  b = 2 * ((sphere->xo * sphere->x1) + (sphere->yo * sphere->y1) + (sphere->zo * sphere->z1));
+  c = powf(sphere->xo, 2) + powf(sphere->yo, 2) + powf(sphere->zo, 2) - powf(R_SPHERE, 2);
+  sphere->x1 += X_SPHERE;
+  sphere->y1 += Y_SPHERE;
+  sphere->z1 += Z_SPHERE;
+  delta = powf(b, 2) - (4 * a * c);
+  if (delta < 0)
+    return (0);
+  else if (delta == 0)
+    {
+      sphere->k1 = (-b) / (2 * a);
+      return (sphere->k1);
+    }
+  else
+    {
+      sphere->k1 = (-b - sqrtf(delta)) / (2 * a);
+      sphere->k2 = (-b + sqrtf(delta)) / (2 * a);
+      if (sphere->k1 < 0 && sphere->k2 < 0)
+        return (0);
+      else if ((sphere->k2 <= sphere->k1
+                && sphere->k2 >= 0) || (sphere->k2 >= 0 && sphere->k1 < 0))
+        return (sphere->k2);
+      else if ((sphere->k1 <= sphere->k2 && sphere->k1 >= 0)
+               || (sphere->k1 >= 0 && sphere->k2 < 0))
+        return (sphere->k1);
+    }
+  return (0);
+}

@@ -1,0 +1,106 @@
+/*
+** my.h for my.h in /home/casier_s//tprtv1
+** 
+** Made by sofian casier
+** Login   <casier_s@epitech.net>
+** 
+** Started on  Tue Feb  5 09:46:59 2013 sofian casier
+** Last update Mon Mar 11 18:48:01 2013 sofian casier
+*/
+
+#ifndef __MY___
+#define __MY___
+
+#include <stdio.h>
+
+#define RAD (3.14159265 / 180)
+#define WIN_X (1920)
+#define WIN_Y (1200)
+
+#define X_1 (0)
+#define Y_1 (0)
+#define Z_PLAN (10)
+
+#define X_O (-300)
+#define Y_O (0)
+#define Z_O (30)
+
+#define X_SPHERE (-50)
+#define Y_SPHERE (0)
+#define Z_SPHERE (0)
+#define R_SPHERE (250)
+
+#define LX_SPOT (0)
+#define LY_SPOT (0)
+#define LZ_SPOT (0)
+
+typedef struct s_image
+{
+  int   sizeline;
+  int   endian;
+  int   bpp;
+  char  *data;
+}       t_image;
+
+typedef struct s_expose
+{
+  void  *mlx_ptr;
+  void  *win_ptr;
+  void  *img;
+  void  *img2;
+}       t_expose;
+
+typedef struct s_interlight
+{
+  float	px;
+  float	py;
+  float	pz;
+  float	nx;
+  float	ny;
+  float	nz;
+  float lx;
+  float ly;
+  float	lz;
+  float coscolor;
+}       t_interlight;
+
+typedef struct s_point
+{
+  float	x1;
+  float	y1;
+  float	z1;
+}	t_point;
+
+typedef struct sphere
+{
+  float	x1;
+  float	y1;
+  float	z1;
+  float	xo;
+  float	yo;
+  float	zo;
+}	t_sphere;
+
+typedef struct s_plane
+{
+  float	x1;
+  float	y1;
+  float	z1;
+  float	xo;
+  float	yo;
+  float	zo;
+}	t_place;
+
+void    rotation_x(t_sphere*, float);
+void    rotation_y(t_sphere*, float);
+void    rotation_z(t_sphere*, float);
+int     write_arrow(int, void*);
+int     color_pixel(t_image*,int, int);
+void    draw_line(t_image*,t_expose*);
+int     fill_image(t_image*, t_expose*,int, int);
+int     manage_expose(t_expose*);
+float   create_sphere(t_sphere*);
+float   inter_plan(t_sphere *,int, int);
+int     coord(t_sphere*, int, int);
+int     calc(t_expose*, int, int);
+#endif /*__MY__*/

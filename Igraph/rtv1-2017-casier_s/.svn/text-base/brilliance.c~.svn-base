@@ -1,0 +1,16 @@
+/*
+** brilliance.c for brillance in /home/casier_s//rtv1-2017-casier_s
+** 
+** Made by sofian casier
+** Login   <casier_s@epitech.net>
+** 
+** Started on  Tue Mar 12 19:58:49 2013 sofian casier
+** Last update Tue Mar 12 19:59:13 2013 sofian casier
+*/
+
+#include "my.h"
+
+int	brilliance()
+{
+
+}

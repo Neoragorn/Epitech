@@ -1,0 +1,70 @@
+    /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - \
+   /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\  
+  /                                                                                    \
+  --------------------------------------------------------------------------------------
+|                                                                                        |
+|                             -------- Welcome ! --------                                |
+|                                                                                        |
+|                                                                                        |
+|                                                                                        |
+|     This is our Raytracer : The goal of this project is to generate a picture          |
+|     which has been calculated by Raytracing.                                           |
+|                                                                                        |
+|     To use our Raytracer you can do this : ./rt your_config_file                       |
+|     With your_config_file, being simply your config file !                             |
+|                                                                                        |
+|                                                                                        |
+|                                                                                        |
+|     You can add arguments after your_config_file :                                     |
+|                                                                                        |
+|     - You can put the number of threads which you want to use : 1, 2, 3, 4.            |
+|                                                                                        |
+|     - After the number of threads, you can add the name of the bmp file you want       |
+|       to export your image, but you just can use it with one threads.                  |
+|                                                                                        |
+|     - To use our config file  : read the next Totem !                                  |
+|                                                                                        |
+ \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  /
+  \                                                                                    /
+   \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+    \_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ /
+    /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - \
+   /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\  
+  /                                                                                    \
+  --------------------------------------------------------------------------------------
+|                                                                                        |
+|                                                                                        |
+|                             One line equal one object !                                |
+|                                                                                        |
+| You can put :										 |
+|											 |
+|  x_pos : Position on the X axis							 |
+|  y_pos : Position on the Y axis							 |
+|  z_pos : Position on the Z axis							 |
+|  Radius : The radius of your object							 |
+|  Shine : How shiny your object is, added to the light					 |
+|  Red/Green/blue : The color of your object                                             |
+|											 |	
+|  Here is an example of a config file:			                                 |
+|   sphere:pos_x;pos_y;pos_z;radius;shine;red;green;blue;                                |
+|   cylindre:pos_x;pos_y;pos_z;radius;shine;red;green;blue;ang_x;ang_y;ang_z;z_min;z_max;|
+|   cone:pos_x;pos_y;pos_z;ang_cone;shine;red;green;blue;ang_x;ang_y;ang_z;z_min;z_max;  |
+|   plan:pos_x;pos_y;pos_z;shine;red;green;blue;ang_x;ang_y;ang_z;radius_min;radius_max; |
+|   spot:pos_x;pos_y;pos_z;red;green;blue;                                               |
+|   paraboloide:pos_x;pos_y;pos_z;CSTE;shine;red;green;blue;ang_x;ang_y;ang_z;z_min;z_max|
+|                                                                                        |
+|                                                                                        |
+|                                                                                        |
+|             Don't put an empty line and respect this syntax !                          |
+|                                                                                        |
+|                       THANK YOU FOR USING OUR PROGRAM !                                |
+| Journet Quentin / Loverg Clement / Casier Sofian / Koszyczek Laurent / Amoureux Alix   |
+|                                                                                        |
+|                                                                                        |
+|                                                                                        |
+|                                                                                        |
+ \ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  /
+  \                                                                                    /
+   \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+    \_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ /
+

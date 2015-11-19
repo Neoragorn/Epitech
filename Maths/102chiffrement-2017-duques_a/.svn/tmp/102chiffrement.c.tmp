@@ -1,0 +1,37 @@
+/*
+** 102chiffrement.c for 102chiffrement in /home/duques_a/102chiffrement-2017-duques_a
+** 
+** Made by pierre duquesnoy
+** Login   <duques_a@epitech.net>
+** 
+** Started on  Tue Nov 27 13:19:51 2012 pierre duquesnoy
+<<<<<<< .mine
+** Last update Tue Nov 27 22:11:39 2012 sofian casier
+=======
+** Last update Tue Nov 27 21:12:37 2012 pierre duquesnoy
+>>>>>>> .r8
+*/
+
+#include <stdlib.h>
+#include <stdio.h>
+#include "chiffre.h"
+#include "my.h"
+
+
+int	main(int argc, char **argv)
+{
+<<<<<<< .mine
+  alpha_pos("abc");
+=======
+  s_mat	*matrice;
+  char	*test;
+  int	i;
+
+  i++;
+  matrice = create_matrice(4,4);
+  display_matrice(matrice);
+  printf("Chiffrement de %s à l'aide de la clé %s %s %s %s dans la base %s", argv[1], argv[2], argv[3], argv[4], argv[5], argv[6], argv[7]);
+  printf("\n");
+  alpha_pos("abc");
+>>>>>>> .r8
+}

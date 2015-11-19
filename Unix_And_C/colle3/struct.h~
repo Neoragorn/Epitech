@@ -1,0 +1,46 @@
+/*
+** struct.h for stru in /home/casier_s//colle3
+** 
+** Made by sofian casier
+** Login   <casier_s@epitech.net>
+** 
+** Started on  Tue May  7 09:25:16 2013 sofian casier
+** Last update Tue May  7 10:36:30 2013 sofian casier
+*/
+
+#ifndef __MY__
+# define __MY__
+# define WIN_X (1900)
+# define WIN_Y (1080)
+# define SQUARE_X (100)
+# define SQUARE_Y (100)
+
+typedef struct s_image
+{
+  int   sizeline;
+  int   endian;
+  int   bpp;
+  char  *data;
+}       t_image;
+
+typedef struct s_expose
+{
+  void  *mlx_ptr;
+  void  *win_ptr;
+  void  *img;
+  void  *img2;
+  int   x;
+  int   y;
+}       t_expose;
+
+typedef struct s_color
+{
+  float red;
+  float green;
+  float blue;
+  float bred;
+  float bgreen;
+  float bblue;
+}       t_color;
+
+#endif /*__MY__*/

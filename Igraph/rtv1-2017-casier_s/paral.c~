@@ -1,0 +1,31 @@
+/*
+** paral.c for paral in /home/casier_s//rtv1-2017-casier_s
+** 
+** Made by sofian casier
+** Login   <casier_s@epitech.net>
+** 
+** Started on  Mon Jun  3 14:21:26 2013 sofian casier
+** Last update Mon Jun  3 16:44:15 2013 sofian casier
+*/
+
+#include	<mlx.h>
+#include	<stdlib.h>
+#include	"struct.h"
+#include	"my.h"
+
+float		create_paralel(t_sphere *sphere, t_paral *paral, t_expose *expose)
+{
+  paral->x = expose->x;
+  paral->y = expose->y;
+  paral->v1x = PARAL_X3 - PARAL_X1;
+  paral->v1y = PARAL_Y3 - PARAL_Y1;
+  paral->v2x = PARAL_X2 - PARAL_X1;
+  paral->v2y = PARAL_Y2 - PARAL_X1;
+  paral->k2 = ((paral->v1x * expose->y) - (expose->x * paral->v1y)) / ((paral->v2y * paral->v1x) - (paral->v1y * paral->v2x));
+  paral->k1 = ((expose->x - (paral->k2 * paral->v2x) / paral->v1x));
+  paral->P = ((paral->k1 * paral->v1x) + (paral->k1 * paral->v1y)) + ((paral->k2 * paral->v2x) + (paral->k2 * paral->v2y));
+  if ((paral->k1 > 0 && paral->k1 < 1) && (paral->k2 > 0 && paral->k2 < 1))
+    return (k1);
+  else
+    return (0);
+}

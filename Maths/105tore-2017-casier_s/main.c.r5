@@ -1,0 +1,121 @@
+/*
+** main.c for my_105tore in /home/liagre_c//Math/105
+** 
+** Made by clement liagre
+** Login   <liagre_c@epitech.net>
+** 
+** Started on  Mon Jan 14 12:59:00 2013 clement liagre
+** Last update Tue Jan 15 14:20:43 2013 sofian casier
+*/
+
+#define ITER_MAX (20)
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+
+
+float	f_bis(float x, float *tab)
+{
+  x = (tab[5] * powf(x,4)) + (tab[4] * powf(x,3)) + (tab[3] * powf(x,2)) + (tab[2] * powf(x,1)) + tab[1];  
+  return (x);
+}
+
+float	newton(float *tab, char **argv)
+{
+  float init;
+  float end;
+  int	stop;
+
+  init = 0;
+  end = 1;
+  stop = 20;
+  
+}
+
+float	 bissection(float *tab, char **argv)
+{
+  float	init;
+  float	end;
+  float	xm;
+  int	stop;
+  int	i;
+
+  i = 0;
+  init = 0;
+  end = 1;
+  stop = 20;
+  while (i < stop)
+    {
+      if (init > end)
+	my_swap(init, end);
+      xm = (init + end) / 2;
+      if ((f_bis(init, tab) * f_bis(xm, tab)) > 0)
+	{
+	  printf("%.10f\n", xm);
+	  init = xm;
+	}
+      else
+	{
+	  printf("%.10f\n", xm);
+	  end = xm;
+	}
+      i++;
+    }
+}
+
+int	chooser(float *tab, int argc, char **argv)
+{ 
+  //  put_poly(tab);
+  if (tab[0] == 1 || tab[0] == 4)
+    {
+      printf("You choose: bissection case.\n");
+      bissection(tab, argv);
+    }
+   else if (tab[0] == 2 || tab[0] == 4)
+    {
+      printf("You choose: Newton case.\n");
+      //      Newton(tab);
+    }
+  else if (tab[0] == 3 || tab[0] == 4)
+    {
+      printf("You choose: secante case.\n");
+      //      secante(tab);
+    }
+  return (0);
+}
+
+int	main(int argc, char **argv)
+{
+  int	a;
+  int	i;
+  int	c;
+  float	*tab;
+  float	stop;
+  int	j;
+
+  j = 0;
+  c = 0;
+  a = 1;
+  i = 0;
+  tab = malloc(argc * sizeof(float));
+  if (argc <= 7)
+    {
+      printf("not enough arguments.\nThis is bull shit.\n");
+      return (0);
+    }
+  if (argc == 8)
+    {
+      while (c < argc - 2)
+	{
+	  tab[j] = atoi(argv[a]);
+	  printf("\n%f\n", tab[j]);
+	  a++;
+	  j++;
+	  c++;
+	}
+      chooser(tab, argc, argv);
+    }
+  else  
+    printf("Come on, give me a REAL problem kid.\n");
+  return (0);
+}
